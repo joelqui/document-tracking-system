@@ -1,7 +1,9 @@
 <?php
 $host= "localhost";
 $user = "root";
+$pass = "airwaves";
 $db = "tracking";
+// hello
 
 $con = new mysqli($host,$user,$pass,$db);
 
