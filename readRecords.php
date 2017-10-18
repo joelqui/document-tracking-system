@@ -1,4 +1,5 @@
 <?php
+//MARJORIE CRAVE WA NAMINAW NGA IBUTANG ANG DEPT NAME
 //fetch.php
 include('sql_connect.php');
 $output = '';
