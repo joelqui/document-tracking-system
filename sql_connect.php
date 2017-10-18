@@ -1,7 +1,6 @@
 <?php
 $host= "localhost";
 $user = "root";
-$pass = "";
 $db = "tracking";
 
 $con = new mysqli($host,$user,$pass,$db);
