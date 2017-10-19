@@ -9,8 +9,9 @@ if(isset($_POST["query"]))
   SELECT users.user_id,users.username,users.usertype,departments.department_name FROM departments inner join users on users.department_id= departments.department_id
   WHERE username LIKE '%".$search."%'
   OR usertype LIKE '%".$search."%' 
-   OR first_name LIKE '%".$search."%' 
-    OR department_name LIKE '%".$search."%' 
+  OR first_name LIKE '%".$search."%' 
+  OR department_name LIKE '%".$search."%' 
+  
  ";
 }
 else
