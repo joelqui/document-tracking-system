@@ -66,8 +66,17 @@ include("auth.php"); //include auth.php file on all secure pages ?>
 
 <div class="container">
   <div class="well">
-    <h1>Department View</h1>
-  
+    <div class="row">
+        <div class="col-md-4">
+            <h1>Department View</h1>
+        </div>
+        <div class="col-md-8" id = "SelectedData" style="background-color: white; border-radius: 5px;">
+            
+        </div>
+        <div class="col-md-8" id = "SelectedIncomming" style="background-color: white; border-radius: 5px;">
+            
+        </div>
+    </div>
     <hr>
     
 <div class="panel panel-default">

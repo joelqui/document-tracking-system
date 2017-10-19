@@ -8,7 +8,7 @@ $echo = '<option value=""disabled>Select Document</option>';
 							INNER JOIN documents ON documents_history.document_id = documents.document_id WHERE `dochist_type` = 2 and `dochist_active` = 1 and documents_history.user_id = '$user_id'");
 		$row = mysqli_num_rows($query);
 		while ($row = mysqli_fetch_assoc($query)){
-		$echo .='<option value = "'.$row['document_id'].'"> '.$row["document_name"].'&nbsp;'.$row["tracking_number"].' </option>';
+		$echo .='<option value = "'.$row['document_id'].'">'.$row["tracking_number"].'- '.$row["document_name"].'</option>';
 		}
 		echo $echo;
 ?>

@@ -31,6 +31,7 @@ $(document).ready(function () {
     $('#accept').click(function(){
     	$('#incoming option:selected').each(function(){
     		var docid = $(this).val();
+            $('#SelectedData').text('');
     		console.log(docid);
 
     	$.post("doc_process/execute.php", {
@@ -42,10 +43,27 @@ $(document).ready(function () {
             readDept() ;
            readForwarded();
             console.log(data);
+            $("#SelectedIncomming").text('');
              $("#myModal").modal("hide");
         });
     	});
     });
+     $('#onqueue').on('change', function (e){
+        $("#SelectedIncomming").text('');
+        $("#incoming option:selected").prop('selected',false);
+        var selMulti = $.map($("#onqueue option:selected"), function (el, i) {
+         return $(el).text();
+     });
+     $("#SelectedData").text(selMulti.join(", "));  
+    });
+    $('#incoming').on('change', function (e){
+        $("#SelectedData").text('');
+         $("#onqueue option:selected").prop('selected',false);
+        var selMulti = $.map($("#incoming option:selected"), function (el, i) {
+         return $(el).text();
+     });
+     $("#SelectedIncomming").text(selMulti.join(", "));  
+    });  
     $('#forward').click(function(){
         $('#onqueue option:selected').each(function(){
         var value1 = $(this).val();
@@ -63,6 +81,7 @@ $(document).ready(function () {
             DeptQueue();
             readDept() ;
             readForwarded();
+            $("#SelectedData").text('');
             console.log(readForwarded);
         }); 
         });
