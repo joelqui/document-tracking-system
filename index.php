@@ -1,4 +1,11 @@
 
+<?php
+session_start();
+if(!isset($_SESSION["username"])){
+ header("Location: department-views.php");
+exit(); }
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
