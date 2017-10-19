@@ -66,7 +66,7 @@ $(document).ready(function(){
 
       font-family: Cooper Black;
       font-weight: bold;
-      color: #000000;
+      color: red;
       border: 1px solid #000000;
       width: 340px;
       padding: 10px;
@@ -80,8 +80,8 @@ $(document).ready(function(){
 <body background="img/bg.jpg">
   <br>
           <center>  
-           <div id="clockbox" class="con"></div>
-          
+           <div id="clockbox" class="con"></div>    
+             
   <p class="text"> <marquee width = "100%"><h2><font color="red"><b>DOCUMENT TRACKING SYSTEM</b></font></h2></marquee><p>
     <div class="container" style="margin-top:40px">
     <div class="row">

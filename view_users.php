@@ -34,41 +34,6 @@ $(document).ready(function(){
 
 });
 
-
-$(document).ready(function(){
-
- readRecords();
-
- function readRecords(query)
- {
-  $.ajax({
-   url:"readRecords.php",
-   method:"POST",
-   data:{query:query},
-   success:function(data)
-   {
-    $('.records_content').html(data);
-   }
-  });
- }
- $('#search_text').keyup(function(){
-  var search = $(this).val();
-  if(search != '')
-  {
-   readRecords(search);
-  }
-  else
-  {
-   readRecords();
-  }
- });
-});
-
-
-
-
-
-
 </script>
 
 </head>
@@ -89,13 +54,13 @@ $(document).ready(function(){
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a href="#" class=""><span class="fa fa-wrench"> </span> Under Construction</a></a></li>
+                        <li><a href="statistic.php" class=""><span class="fa fa-bar-chart"> </span> Statistics</a></a></li>
                         <li><a href="tracking_document.php"><span class="fa fa-file"></span> Track Documents</span></a></li>
                         <li><a href="adddocu.php"><span class="fa fa-file"></span> Add Documents</span></a></li>
                        
                     </ul>
                     <ul class="nav navbar-nav pull-right">   
-                 <li  id="usertype" data-organ="<?php echo $_SESSION['usertype'];?>" id="dept1" data-poop="<?php echo $_SESSION['department_id'];?>" class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span  class="fa fa-sign-in"></span> Log-in as: <?php echo $_SESSION['username']; ?>!  <span class="caret"></span></a>
+                 <li  id="usertype" data-organ="<?php echo $_SESSION['usertype'];?>" data-dept="<?php echo $_SESSION['department_id'];?>" data-user="<?php echo $_SESSION['user_id']; ?>" class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span  class="fa fa-sign-in"></span> Log-in as: <?php echo $_SESSION['username']; ?>!  <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                <li id="m_user" ><a href="view_users.php">Manage User</a></li>
                                 <li id="m_department"><a href="view_departments.php">Manage Departments</a></li>

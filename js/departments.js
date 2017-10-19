@@ -1,12 +1,30 @@
 $(document).ready(function () {
     // READ records
-function readRecords() {
-    $.get("readDepartments.php", {}, function (data, status) {
-        $(".records_content").html(data);
-    });
-}
-// READ recods on page load
-    readRecords();
+ readRecords();
+
+ function readRecords(query)
+ {
+  $.ajax({
+   url:"readDepartments.php",
+   method:"POST",
+   data:{query:query},
+   success:function(data)
+   {
+    $('.records_content').html(data);
+   }
+  });
+ }
+ $('#search_text').keyup(function(){
+  var search = $(this).val();
+  if(search != '')
+  {
+   readRecords(search);
+  }
+  else
+  {
+   readRecords();
+  }
+ });
 //final
 
 $('#submit').click(function(){

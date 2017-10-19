@@ -1,18 +1,30 @@
 $(document).ready(function(){
         // READ records
-function readRecords() {
-    $.get("readRecords.php", {}, function (data, status) {
-        $(".records_content").html(data);
-    });
-}
-// READ recods on page load
-    readRecords();
-    $(function(){
-    $('#username').val("");
-    $('#password').val("");
-    
+ readRecords();
 
-    });
+ function readRecords(query)
+ {
+  $.ajax({
+   url:"readRecords.php",
+   method:"POST",
+   data:{query:query},
+   success:function(data)
+   {
+    $('.records_content').html(data);
+   }
+  });
+ }
+ $('#search_text').keyup(function(){
+  var search = $(this).val();
+  if(search != '')
+  {
+   readRecords(search);
+  }
+  else
+  {
+   readRecords();
+  }
+ });
 
    function readDept(){
 

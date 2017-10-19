@@ -5,7 +5,7 @@ include("auth.php"); //include auth.php file on all secure pages ?>
 <html>
 <head>
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="css/style1.css" />
    
@@ -13,9 +13,10 @@ include("auth.php"); //include auth.php file on all secure pages ?>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/nav.js"></script>
     <script src="js/usertype.js"></script>
-   
+
 </head>
 <body>
+<!--navigation start-->
 <div class="navbar-wrapper">
     <div class="container-fluid">
         <nav class="navbar-inverse navbar-fixed-top">
@@ -31,8 +32,8 @@ include("auth.php"); //include auth.php file on all secure pages ?>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a href="statistic.php" class=""><span class="fa fa-bar-chart"> </span> Statistics</a></a></li>
-                        <li class="active"><a href="#"><span class="fa fa-file"></span> Track Documents</span></a></li>
+                        <li class="active"><a href="#" class=""><span class="fa fa-bar-chart"> </span> Statistics</a></a></li>
+                        <li><a href="tracking_document.php"><span class="fa fa-file"></span> Track Documents</span></a></li>
                         <li><a href="adddocu.php"><span class="fa fa-file"></span> Add Documents</span></a></li>
                        
                     </ul>
@@ -53,78 +54,58 @@ include("auth.php"); //include auth.php file on all secure pages ?>
         </nav>
     </div>
 </div>
+</div><!--navigation end!!!-->
+  
+<br><br>
+<br>
+<br><br>
+
+<div class="container" style="width:850px;">
+	<div class="panel panel-default">
+	<div class="panel-body">
+		<div class="col-sm-12">
+  <h2><b>STATISTICS</b></h2><hr>
+       </div>   
+  <table class="table table-bordered table-hover">
+    <thead>
+      <tr class="danger">
+        <th>DEPARTMENTS</th>
+        <th>ON QUEUE</th>
+        <th>PROCESSED</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>RECORDS</td>
+        <td>Travel Order</td>
+        <td>done</td>
+      </tr>
+      <tr>
+        <td>FINANCE</td>
+        <td>Memo</td>
+        <td>done</td>
+      </tr>
+      <tr>
+        <td>ADMIN</td>
+        <td>MOA</td>
+        <td>done</td>
+      </tr>
+       <tr>
+        <td>SDS</td>
+        <td>Love Letter</td>
+        <td>done</td>
+      </tr>
+       <tr>
+        <td>ICT UNIT</td>
+        <td>Insurance</td>
+        <td>done</td>
+      </tr>
+    </tbody>
+  </table>
+
 
 </div>
-
-<!-- ================BOOTSTRAP MODAL HERE start!!============================================================== -->    
-<br><br>
-<br><br>
-
-	
-<div class="container">
-	<div class="panel panel-default">
-		<div class="panel-body">
-			<label>Track Your Document</label>
-			<form class="form-inline">
-				<div class="form-group">
-					<input type="text" class="form-control" id="name">
-					<button type="button" class="btn">Go</button>
-				</div>
-			</form>
-			<hr>
-			<div class="col-sm-8">
-				<label>Tracking Number : 20170907001</label><br>
-				<label>Document Name &nbsp;: <u>SALARY CLAIM OF PERSON A</u></label>
-			</div>
-			<div class="col-sm-4">
-				<label>Submitted By : PERSON B</label><br>
-			</div>
-			<table class="table table-bordered">
-			<thead>
-				<tr>
-					<th>DATE/TIME</th>
-					<th>STATUS</th>
-					<th>USER</th>
-					<th>REMARKS</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>		
-				
-					<td>09/07/17 08:00</td>
-					<td>RECEIVED AT RECORDS</td>
-					<td>EDALINE</td>
-					<td></td>
-
-				</tr>
-				<tr>		
-				
-					<td>09/07/17 09:30</td>
-					<td>FORWARDED TO CID</td>
-					<td>EDALINE</td>
-					<td></td>
-
-				</tr>
-				<tr>		
-				
-					<td>09/07/17 10:00</td>
-					<td>RECEIVED AT CID</td>
-					<td>MALOU</td>
-					<td></td>
-
-				</tr>
-				<tr>		
-				
-					<td>09/07/17 01:08</td>
-					<td>FORWARDED TO FINANCE</td>
-					<td>MALOU</td>
-					<td></td>
-
-				</tr>
-			</tbody>
-			</table>
-		</div>
-	</div>
+</div>
 </div>
 </body>
 </html>
