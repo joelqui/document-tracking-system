@@ -29,8 +29,12 @@ require_once('tcpdf_include.php');
 require_once('../../sql_connect.php');
 
 $tracking = '';
+$document_name = '';
+$datetime_received = '';
+$submitted_by = '';
+$CONCAT = '';
 
- $query = "SELECT tracking_number, document_name, datetime_received, CONCAT( users.first_name,  ' ', users.last_name ) , 	submitted_by
+ $query = "SELECT tracking_number, document_name, datetime_received, CONCAT( users.first_name,  ' ', users.last_name ) As name, 	submitted_by
 		FROM documents
 		INNER JOIN users ON documents.user_id = users.user_id
 		WHERE document_id = ( 
@@ -42,7 +46,10 @@ $result = mysqli_query($con, $query);
  while($row = mysqli_fetch_array($result))
  {
   $tracking = $row['tracking_number'];
-  
+  $document_name = $row['document_name'];
+  $datetime_received = $row['datetime_received'];
+  $submitted_by = $row['submitted_by'];
+  $CONCAT = $row['name'];
  }
 
 
@@ -104,11 +111,41 @@ $html = '
 		<td style="text-align: center";><label>Tracking Number:</label><br><b><font face="Arial-Black" size="19">';
  $html .= $tracking;
 
- $html .= '</font></b><br><br><label>Document Name:</label><br><b>Wedding Certificate of Leizel Acibes</b><br><br><label>Date & Time Received:</label><br><b>09/13/17 8:00 AM</b><br><br><label>Submitted By:</label><br><br><b>Samson Kolorado</b><br><br><label>Received By:</label><br><br><b>Marjorie Crave</b></td>
+ $html .= '</font></b><br><br><label>Document Name:</label><br><b>';
+ $html .= $document_name;
+ $html .= '</b><br><br><label>Date & Time Received:</label><br><b>';
+ $html .= $datetime_received;
+ $html .= '</b><br><br><label>Submitted By:</label><br><br><b>';
+ $html .= $submitted_by;
+ $html .= '</b><br><br><label>Received By:</label><br><br><b>';
+ $html .= $CONCAT;	 
+ $html .= '</b></td>
 		
-		<td style="text-align: center";><label>Tracking Number:</label><br><b><font face="Arial-Black" size="19">20170907001</font></b><br><br><label>Document Name:</label><br><b>Wedding Certificate of Leizel Acibes</b><br><br><label>Date & Time Received:</label><br><b>09/13/17 8:00 AM</b><br><br><label>Submitted By:</label><br><br><b>Samson Kolorado</b><br><br><label>Received By:</label><br><br><b>Marjorie Crave</b></td>
+		<td style="text-align: center";><label>Tracking Number:</label><br><b><font face="Arial-Black" size="19">';
+ $html .= $tracking;
 
-		<td style="text-align: center";><label>Tracking Number:</label><br><b><font face="Arial-Black" size="19">20170907001</font></b><br><br><label>Document Name:</label><br><b>Wedding Certificate of Leizel Acibes</b><br><br><label>Date & Time Received:</label><br><b>09/13/17 8:00 AM</b><br><br><label>Submitted By:</label><br><br><b>Samson Kolorado</b><br><br><label>Received By:</label><br><br><b>Marjorie Crave</b></td>
+ $html .= '</font></b><br><br><label>Document Name:</label><br><b>';
+ $html .= $document_name;
+ $html .= '</b><br><br><label>Date & Time Received:</label><br><b>';
+ $html .= $datetime_received;
+ $html .= '</b><br><br><label>Submitted By:</label><br><br><b>';
+ $html .= $submitted_by;
+ $html .= '</b><br><br><label>Received By:</label><br><br><b>';
+ $html .= $CONCAT;	 
+ $html .= '</b></td>
+
+		<td style="text-align: center";><label>Tracking Number:</label><br><b><font face="Arial-Black" size="19">';
+ $html .= $tracking;
+
+ $html .= '</font></b><br><br><label>Document Name:</label><br><b>';
+ $html .= $document_name;
+ $html .= '</b><br><br><label>Date & Time Received:</label><br><b>';
+ $html .= $datetime_received;
+ $html .= '</b><br><br><label>Submitted By:</label><br><br><b>';
+ $html .= $submitted_by;
+ $html .= '</b><br><br><label>Received By:</label><br><br><b>';
+ $html .= $CONCAT;	 
+ $html .= '</b></td>
 		
 	</tr>
 	
