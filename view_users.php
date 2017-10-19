@@ -115,7 +115,7 @@ $(document).ready(function(){
 <br>
 
 <!--Fecth data here!!-->
-<div class="container" style="width:800px;">
+<div class="container" style="width:700px;">
   <br>
 
     <div class="row">

@@ -40,7 +40,7 @@
                      <td width="70%">'.$row["usertype"].'</td>  
                 </tr>  
                 <tr>  
-                     <td width="30%"><label>Department ID</label></td>  
+                     <td width="30%"><label>Department Name</label></td>  
                      <td width="70%">'.$row["department_id"].'</td>  
                 </tr>   
                 ';  
