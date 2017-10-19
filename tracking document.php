@@ -5,7 +5,7 @@ include("auth.php"); //include auth.php file on all secure pages ?>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Addocu</title>
+    <title>Track Documents</title>
    
     <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="assets/bootstrap/css/bootstrap.min.css" />
