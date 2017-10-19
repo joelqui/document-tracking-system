@@ -26,6 +26,25 @@
 
 // Include the main TCPDF library (search for installation path).
 require_once('tcpdf_include.php');
+require_once('../../sql_connect.php');
+
+$tracking = '';
+
+ $query = "SELECT tracking_number, document_name, datetime_received, CONCAT( users.first_name,  ' ', users.last_name ) , 	submitted_by
+		FROM documents
+		INNER JOIN users ON documents.user_id = users.user_id
+		WHERE document_id = ( 
+		SELECT MAX( document_id ) 
+		FROM documents )";
+
+$result = mysqli_query($con, $query);
+
+ while($row = mysqli_fetch_array($result))
+ {
+  $tracking = $row['tracking_number'];
+  
+ }
+
 
 // create new PDF document
 $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
@@ -33,24 +52,21 @@ $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8',
 // set document information
 $pdf->SetCreator(PDF_CREATOR);
 $pdf->SetAuthor('Nicola Asuni');
-$pdf->SetTitle('TCPDF Example 006');
+$pdf->SetTitle('Document Tracking System');
 $pdf->SetSubject('TCPDF Tutorial');
 $pdf->SetKeywords('TCPDF, PDF, example, test, guide');
 
 // set default header data
-$pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE.' 006', PDF_HEADER_STRING);
+
 
 // set header and footer fonts
-$pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
+
 $pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
 
 // set default monospaced font
 $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
 
 // set margins
-$pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
-$pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
-$pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
 
 // set auto page breaks
 $pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
@@ -75,27 +91,34 @@ $pdf->AddPage();
 
 // create some HTML content
 
-$html = '<h2>HTML TABLE:</h2>
-<table border="1" cellspacing="3" cellpadding="4">
+
+$html = '
+<table>
 	<tr>
-		<th>#</th>
-		<th align="right">RIGHT align</th>
-		<th align="left">LEFT align</th>
-		<th>4A</th>
+		<th style="text-align: center" >Department of Education<br>Division of Southern Leyte<br>Document Tracking System</th>
+       <th style="text-align: center">Department of Education<br>Division of Southern Leyte<br>Document Tracking System</th>
+      <th style="text-align: center">Department of Education<br>Division of Southern Leyte<br>Document Tracking System</th>
 	</tr>
 	<tr>
-		<td>1</td>
-		<td bgcolor="#cccccc" align="center" colspan="2">A1 ex<i>amp</i>le <a href="http://www.tcpdf.org">link</a> column span. One two tree four five six seven eight nine ten.<br />line after br<br /><small>small text</small> normal <sub>subscript</sub> normal <sup>superscript</sup> normal  bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla<ol><li>first<ol><li>sublist</li><li>sublist</li></ol></li><li>second</li></ol><small color="#FF0000" bgcolor="#FFFF00">small small small small small small small small small small small small small small small small small small small small</small></td>
-		<td>4B</td>
+		<br>
+		<td style="text-align: center";><label>Tracking Number:</label><br><b><font face="Arial-Black" size="19">';
+ $html .= $tracking;
+
+ $html .= '</font></b><br><br><label>Document Name:</label><br><b>Wedding Certificate of Leizel Acibes</b><br><br><label>Date & Time Received:</label><br><b>09/13/17 8:00 AM</b><br><br><label>Submitted By:</label><br><br><b>Samson Kolorado</b><br><br><label>Received By:</label><br><br><b>Marjorie Crave</b></td>
+		
+		<td style="text-align: center";><label>Tracking Number:</label><br><b><font face="Arial-Black" size="19">20170907001</font></b><br><br><label>Document Name:</label><br><b>Wedding Certificate of Leizel Acibes</b><br><br><label>Date & Time Received:</label><br><b>09/13/17 8:00 AM</b><br><br><label>Submitted By:</label><br><br><b>Samson Kolorado</b><br><br><label>Received By:</label><br><br><b>Marjorie Crave</b></td>
+
+		<td style="text-align: center";><label>Tracking Number:</label><br><b><font face="Arial-Black" size="19">20170907001</font></b><br><br><label>Document Name:</label><br><b>Wedding Certificate of Leizel Acibes</b><br><br><label>Date & Time Received:</label><br><b>09/13/17 8:00 AM</b><br><br><label>Submitted By:</label><br><br><b>Samson Kolorado</b><br><br><label>Received By:</label><br><br><b>Marjorie Crave</b></td>
+		
 	</tr>
 	
-		
 </table>';
 
 // output the HTML content
 $pdf->writeHTML($html, true, false, true, false, '');
 
 // Print some HTML Cells
+
 
 
 
@@ -112,7 +135,7 @@ $pdf->writeHTML($html, true, false, true, false, '');
 // ---------------------------------------------------------
 
 //Close and output PDF document
-$pdf->Output('example_006.pdf', 'I');
+$pdf->Output('document tracking system.pdf', 'I');
 
 //============================================================+
 // END OF FILE
