@@ -1,10 +1,10 @@
 <?php
 //fetch.php
-$connect = mysqli_connect("localhost", "root", "", "tracking");
+include('sql_connect');
 $output = '';
 if(isset($_POST["query"]))
 {
- $search = mysqli_real_escape_string($connect, $_POST["query"]);
+ $search = mysqli_real_escape_string($con, $_POST["query"]);
  $query = "
   SELECT * FROM users 
   WHERE first_name LIKE '%".$search."%'
@@ -21,7 +21,7 @@ else
   SELECT * FROM `users` ORDER BY user_id
  ";
 }
-$result = mysqli_query($connect, $query);
+$result = mysqli_query($con, $query);
 if(mysqli_num_rows($result) > 0)
 {
  $output .= '
