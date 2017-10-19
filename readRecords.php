@@ -16,8 +16,10 @@ if(isset($_POST["query"]))
 }
 else
 {
+  //changes for readrecords 
  $query = "
-  SELECT * FROM `users` ORDER BY user_id
+
+  SELECT users.user_id,users.username, users.usertype, departments.department_name from departments inner join users on users.department_id = departments.department_id
  ";
 }
 $result = mysqli_query($con, $query);
@@ -43,7 +45,7 @@ if(mysqli_num_rows($result) > 0)
    
     <td>'.$row["username"].'</td>
     <td>'.$row["usertype"].'</td>
-    <td>'.$row["department_id"].'</td>
+    <td>'.$row["department_name"].'</td>
    
     <td><button name="deletebtn" class = "btn btn-danger btn-xs" id="deletebtn" data-idpoop="'.$row["user_id"].'"><span  class="fa fa-trash"></span> Delete</button></td>
 

@@ -3,7 +3,9 @@
  {  
       $output = '';  
       require('sql_connect.php');
-      $query = "SELECT * FROM users WHERE user_id = '".$_POST["user_id"]."'";  
+        //changesfor department name view
+      $query = "SELECT  users.user_id,users.first_name,users.middle_name,users.last_name,users.username,users.password, users.usertype, departments.department_name from departments inner join users on users.department_id = departments.department_id WHERE users.user_id = '".$_POST["user_id"]."'";  
+
       $result = mysqli_query($con, $query);  
       $output .= '  
       <div class="table-responsive">  
@@ -41,7 +43,7 @@
                 </tr>  
                 <tr>  
                      <td width="30%"><label>Department Name</label></td>  
-                     <td width="70%">'.$row["department_id"].'</td>  
+                     <td width="70%">'.$row["department_name"].'</td>  
                 </tr>   
                 ';  
       }  
