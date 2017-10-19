@@ -7,17 +7,7 @@ function readRecords() {
 }
 // READ recods on page load
     readRecords();
-
-
-  function readDept(){
-
-    $.get("depart.php",{}, function (data){
-       $("#dept").html(data);
-     });
-    }
-
- readDept();
-
+//final
 
 $('#submit').click(function(){
         var department_name = $("#department_name").val();

@@ -34,37 +34,6 @@ $(document).ready(function(){
 
 });
 
-$(document).ready(function(){
-
- readRecords();
-
- function readRecords(query)
- {
-  $.ajax({
-   url:"readRecords.php",
-   method:"POST",
-   data:{query:query},
-   success:function(data)
-   {
-    $('.records_content').html(data);
-   }
-  });
- }
- $('#search_text').keyup(function(){
-  var search = $(this).val();
-  if(search != '')
-  {
-   readRecords(search);
-  }
-  else
-  {
-   readRecords();
-  }
- });
-});
-
-
-
 </script>
 
 </head>
@@ -123,12 +92,7 @@ $(document).ready(function(){
           <br>
         <button class="btn btn-primary btn-xs" data-toggle="modal" id="clear" data-target="#add_user_modal">Add New Users</button><br><br>  
 
-            <div class="form-group">
-    <div class="input-group">
-     <span class="input-group-addon"><i class="fa fa-search"  ></i>Search</span>
-     <input type="text" name="search_text" id="search_text" placeholder="Search anything.." class="form-control" />
-    </div>
-   </div>
+    
 
             <div class="records_content"></div>
         </div>
