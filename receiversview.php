@@ -36,7 +36,7 @@ include("auth.php"); //include auth.php file on all secure pages ?>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a href="#" class=""><span class="fa fa-wrench"> </span> Under Construction</a></a></li>
-                        <li><a href="tracking document.php"><span class="fa fa-file"></span> Track Documents</span></a></li>
+                        <li><a href="tracking_document.php"><span class="fa fa-file"></span> Track Documents</span></a></li>
                         <li><a href="adddocu.php"><span class="fa fa-file"></span> Add Documents</span></a></li>
                        
                     </ul>
