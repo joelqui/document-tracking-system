@@ -1,44 +1,65 @@
 <?php
-session_start();
-if (!isset($_SESSION['username'])){
-  header("location: login.php");
-}
-?>
+
+include("auth.php"); //include auth.php file on all secure pages ?>
+
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
-<script scr="js/jquery-3.2.1.min.js"></script>
-<script scr="js/bootsrap.js"></script>
+    <title>Addocu</title>
+   
+    <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/style1.css" />
+   
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/nav.js"></script>
+    <script src="js/usertype.js"></script>
 
 </head>
+
 <body>
-	<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">Document Tracking System</a>
+<div class="navbar-wrapper">
+    <div class="container-fluid">
+        <nav class="navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    </button>        
+                <a class="navbar-brand" href="#">Document Tracking System</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li ><a href="#" class=""><span class="fa fa-wrench"> </span> Under Construction</a></li>
+                        <li class="active"><a href="#"><span class="fa fa-file"></span> Track Documents</span></a></li>
+                        <li><a href="adddocu.php"><span class="fa fa-file"></span> Add Documents</span></a></li>
+                       
+                    </ul>
+                    <ul class="nav navbar-nav pull-right">   
+                            <li  id="usertype" data-organ="<?php echo $_SESSION['usertype'];?>" class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span  class="fa fa-sign-in"></span> Log-in as: <?php echo $_SESSION['username']; ?>!  <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li id="m_user" ><a href="view_users.php">Manage User</a></li>
+                                <li id="m_department"><a href="view_departments.php">Manage Departments</a></li>
+                                <li id="v_receiver"><a href="receiversview.php">View as Receiver</a></li>
+                                <li id="v_department"><a href="department-views.php">View as Department</a></li>
+                                <!--<li id="change_pass"><a href="change_pass.php">Change Password</a></li>-->
+                                <li class=""><a href="logout.php"><span  class="fa fa-sign-out"></span>Logout </a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="#"><span class="fa fa-home" aria-hidden="true"></span> Home</a></li>
-        <li><a href="#"><span class="fa fa-file-text" aria-hidden="true"></span> Track Document</a></li>
-      
-    </ul>
-     <ul class="nav navbar-nav navbar-right">
- 
-      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $_SESSION['user']; ?> <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="#">View as Receiver</a></li>
-          <li><a href="#">View as Department</a></li>
-          <li><a href="#">Change Password</a></li>
-           <li><a href="Logout.php">Logout</a></li>
-        </ul>
-      </li>
-     
-    </ul>
-  </div>
-</nav>
+</div>
+
+</div>
+
+</div> <br><br><br><br>
 
 	
 <div class="container">
