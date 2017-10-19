@@ -43,27 +43,72 @@ $(document).ready(function () {
             readDept() ;
            readForwarded();
             console.log(data);
-            $("#SelectedIncomming").text('');
+            $("#SelectedData").text('');
              $("#myModal").modal("hide");
         });
     	});
     });
+
+
+    $('#revert').click(function(){
+        $('#live_forward option:selected').each(function(){
+            var docfwd = $(this).val();
+            $('#SelectedData').text('');
+            console.log(docfwd);
+
+
+        $.post("doc_process/revert.php", {
+            docfwd:docfwd
+        }, function (data, status) {
+            alert(data);
+            Incoming(); // calling function
+            DeptQueue();
+            readDept() ;
+           readForwarded();
+            console.log(data);
+            $("#SelectedData").text('');
+             $("#myModalConfirm").modal("hide");
+        });
+
+        });
+    });
+
+
+     
      $('#onqueue').on('change', function (e){
-        $("#SelectedIncomming").text('');
+        $("#SelectedData").text('');
         $("#incoming option:selected").prop('selected',false);
+        $("#live_forward option:selected").prop('selected',false);
         var selMulti = $.map($("#onqueue option:selected"), function (el, i) {
          return $(el).text();
      });
      $("#SelectedData").text(selMulti.join(", "));  
     });
+    
     $('#incoming').on('change', function (e){
         $("#SelectedData").text('');
          $("#onqueue option:selected").prop('selected',false);
+         $("#live_forward option:selected").prop('selected',false);
         var selMulti = $.map($("#incoming option:selected"), function (el, i) {
          return $(el).text();
      });
-     $("#SelectedIncomming").text(selMulti.join(", "));  
-    });  
+     $("#SelectedData").text(selMulti.join(", "));
+
+    });
+
+    $('#live_forward').on('change', function (e){
+        $("#SelectedData").text('');
+         $("#onqueue option:selected").prop('selected',false);
+         $("#incoming option:selected").prop('selected',false);
+        var selMulti = $.map($("#live_forward option:selected"), function (el, i) {
+         return $(el).text();
+     });
+     $("#SelectedData").text(selMulti.join(", "));
+
+    });
+
+
+
     $('#forward').click(function(){
         $('#onqueue option:selected').each(function(){
         var value1 = $(this).val();

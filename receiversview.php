@@ -94,6 +94,8 @@ include("auth.php"); //include auth.php file on all secure pages ?>
 						<br>
 						<br>
 						<button type="button" class="btn btn-default btn-block" data-toggle="modal" data-target="#myModal2"><span class="fa fa-chevron-right" aria-hidden="true"></span></button>
+						<br>
+						<button type="button" class="btn btn-default btn-block" data-toggle="modal" data-target="#myModalConfirm"><span class="fa fa-undo" aria-hidden="true"></span></button>
 					</div>
 					<div  class="modal fade" id="myModal2" role="dialog">
 						<div class="modal-dialog modal-sm">
@@ -121,6 +123,29 @@ include("auth.php"); //include auth.php file on all secure pages ?>
 
 						</div>
 					</div>
+
+					<!-- Modal -->
+                    <div  class="modal fade" id="myModalConfirm" role="dialog">
+                        <div class="modal-dialog modal-md">
+
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">REVERT DOCUMENT</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <label>Are you sure to revert this documents ?</label>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" id = "revert_receiver_view">Confirm</button>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
 					<div class="col-sm-5">
 						<div class="panel panel-default">
 							<div class="panel-heading">

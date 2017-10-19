@@ -70,12 +70,10 @@ include("auth.php"); //include auth.php file on all secure pages ?>
         <div class="col-md-4">
             <h1>Department View</h1>
         </div>
-        <div class="col-md-8" id = "SelectedData" style="background-color: white; border-radius: 5px;">
+        <div class="col-md-8" id = "SelectedData" style="background-color: white; border-radius: 5px;font-size: 15pt;">
             
         </div>
-        <div class="col-md-8" id = "SelectedIncomming" style="background-color: white; border-radius: 5px;">
-            
-        </div>
+        
     </div>
     <hr>
     
@@ -152,6 +150,8 @@ include("auth.php"); //include auth.php file on all secure pages ?>
                     <br>
                     <br>
                     <button type="button" class="btn btn-default btn-block" data-toggle="modal" data-target="#myModal2"><span class="fa fa-chevron-right" aria-hidden="true"></span></button>
+                    <br>
+                    <button type="button" class="btn btn-default btn-block" data-toggle="modal" data-target="#myModalConfirm"><span class="fa fa-undo" aria-hidden="true"></span></button>
                 </div>
                  <div  class="modal fade" id="myModal2" role="dialog">
                       <div class="modal-dialog modal-sm">
@@ -181,6 +181,29 @@ include("auth.php"); //include auth.php file on all secure pages ?>
                         </div>
 
                       </div>
+                    </div>
+
+
+                    <!-- Modal -->
+                    <div  class="modal fade" id="myModalConfirm" role="dialog">
+                        <div class="modal-dialog modal-md">
+
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">REVERT DOCUMENT</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <label>Are you sure to revert this documents ?</label>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" id = "revert">Confirm</button>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
                 
                 <div class="col-sm-3">

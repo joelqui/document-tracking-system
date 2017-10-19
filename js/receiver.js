@@ -26,6 +26,28 @@ $(document).ready(function() {
     console.log(readForwared);
 
 
+    $('#revert_receiver_view').click(function(){
+        $('#mySel2 option:selected').each(function(){
+            var docfwd = $(this).val();
+            $('#SelectedData').text('');
+            console.log(docfwd);
+
+
+        $.post("doc_process/revert.php", {
+            docfwd:docfwd
+        }, function (data, status) {
+            alert(data);
+            readForwared()
+            readQueue();
+            readDept();
+            console.log(data);
+            $("#SelectedData").text('');
+             $("#myModalConfirm").modal("hide");
+        });
+
+        });
+    });
+
 
     $('#yup').click(function(){
         $('#mySel option:selected').each(function(){
