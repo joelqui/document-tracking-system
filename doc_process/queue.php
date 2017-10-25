@@ -3,7 +3,7 @@ include_once('../sql_connect.php');
 session_start();
 $dept_id = $_SESSION['department_id'];
 
-$data = '<option value=""disabled>Please Select Document</option>';
+$data = '<option value=""disabled>Select Document</option>';
 		$query = mysqli_query($con, "SELECT documents.tracking_number,documents.document_id, documents.document_name
 							FROM `documents_history` 
 							INNER JOIN documents ON documents_history.document_id = documents.document_id WHERE (`dochist_type` = 1 or dochist_type = 4) and `dochist_active` = 1  and department_id = $dept_id");

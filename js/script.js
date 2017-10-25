@@ -49,28 +49,90 @@ $(document).ready(function () {
     	});
     });
 
+    $('#addremarks').click(function(){
+        if ($('#live_forward option:selected').length == 0) {
+            $("#SelectedData").text('');
+            $("#remarks").val('');
+            $("#myModalRemarks").modal("hide");
+            alert('No documents selected !');
+        }else {
+            $('#live_forward option:selected').each(function(){
+            var docremark = $(this).val();
+            var remark = $("#remarks").val();
+            console.log(docremark);
+            console.log(remark);
+
+            $.post("doc_process/remark.php",{
+                docremark:docremark,
+                remark:remark
+            }, function(data){
+                alert(data);
+                $("#SelectedData").text('');
+                $("#remarks").val('');
+                $("#myModalRemarks").modal("hide");
+            });
+
+        });
+        }
+        
+    });
+
+    $('#addremarksqueue').click(function(){
+        if ($('#onqueue option:selected').length == 0){
+            $("#SelectedData").text('');
+            $("#remarksqueue").val('');
+            $("#myModalRemarksforQueue").modal("hide");
+            alert('No documents selected');
+        }else{
+            $('#onqueue option:selected').each(function(){
+            var docremark = $(this).val();
+            var remark = $("#remarksqueue").val();
+            console.log(docremark);
+            console.log(remark);
+
+            $.post("doc_process/remark.php",{
+                docremark:docremark,
+                remark:remark
+            }, function(data){
+                alert(data);
+                $("#SelectedData").text('');
+                $("#remarksqueue").val('');
+                $("#myModalRemarksforQueue").modal("hide");
+            });
+
+        });
+        }
+        
+    });
 
     $('#revert').click(function(){
-        $('#live_forward option:selected').each(function(){
+        if ($('#live_forward option:selected').length == 0) {
+            $("#myModalConfirm").modal("hide");
+            alert('Select a documents you want to retrieve');
+        }
+        else{
+            $('#live_forward option:selected').each(function(){
             var docfwd = $(this).val();
             $('#SelectedData').text('');
             console.log(docfwd);
 
 
-        $.post("doc_process/revert.php", {
-            docfwd:docfwd
-        }, function (data, status) {
-            alert(data);
-            Incoming(); // calling function
-            DeptQueue();
-            readDept() ;
-           readForwarded();
-            console.log(data);
-            $("#SelectedData").text('');
-             $("#myModalConfirm").modal("hide");
-        });
+            $.post("doc_process/revert.php", {
+                docfwd:docfwd
+            }, function (data, status) {
+                alert(data);
+                Incoming(); // calling function
+                DeptQueue();
+                readDept() ;
+               readForwarded();
+                console.log(data);
+                $("#SelectedData").text('');
+                 $("#myModalConfirm").modal("hide");
+            });
 
-        });
+            });
+        }
+        
     });
 
 

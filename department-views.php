@@ -126,7 +126,32 @@ include("auth.php"); //include auth.php file on all secure pages ?>
 
                       </div>
                     </div>
-                
+
+              
+                <!-- 
+                <div class="modal fade" id="warning" role="dialog">
+                    <div class="modal-dialog modal-md">
+
+                        Modal content
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title text-warning"><span class="fa fa-exclamation-circle" aria-hidden="true"></span> Warning</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="alert alert-warning">
+                                    <strong>Info!</strong> No document/s selected 
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                -->
+
                 <div class="col-sm-3">
                     
                         <div class="panel panel-default">
@@ -140,7 +165,7 @@ include("auth.php"); //include auth.php file on all secure pages ?>
                                         </select>
                                 </div>
                         </div>
-                        
+                        <button class="btn btn-default btn-block" data-toggle="modal" data-target="#myModalRemarksforQueue">Add Remarks</button>
                     
                 </div>
                 <div class="col-sm-1">
@@ -220,9 +245,57 @@ include("auth.php"); //include auth.php file on all secure pages ?>
                                    
                                 </div>
                         </div>
-                        <button class="btn btn-default btn-block">Add Remarks</button>
-                    
+                        <button class="btn btn-default btn-block" data-toggle="modal" data-target="#myModalRemarks">Add Remarks</button>
                 </div>
+
+                <div class="modal fade" id="myModalRemarks" role="dialog">
+                        <div class="modal-dialog modal-md">
+
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">ADD REMARKS</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label for="remarks">Remarks:</label>
+                                        <input type="text" class="form-control" id="remarks" placeholder="Enter Remarks" required="required">
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" id = "addremarks">Confirm</button>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="modal fade" id="myModalRemarksforQueue" role="dialog">
+                        <div class="modal-dialog modal-md">
+
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">ADD REMARKS</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label for="remarks">Remarks:</label>
+                                        <input type="text" class="form-control" id="remarksqueue" placeholder="Enter Remarks" required="required">
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" id = "addremarksqueue">Confirm</button>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
             </div>
        
         </div>
