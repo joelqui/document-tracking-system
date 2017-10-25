@@ -70,7 +70,7 @@ include("auth.php"); //include auth.php file on all secure pages ?>
         <div class="col-md-4">
             <h1>Department View</h1>
         </div>
-        <div class="col-md-8" id = "SelectedData" style="background-color: white; border-radius: 5px;font-size: 15pt;">
+        <div class="col-md-8" id = "SelectedData" style="font-size: 15pt;">
             
         </div>
         
