@@ -73,7 +73,7 @@ $(document).ready(function(){
 
       font-family: Cooper Black;
       font-weight: bold;
-      color: #000000;
+      color: red;
       border: 1px solid #000000;
       width: 340px;
       padding: 10px;

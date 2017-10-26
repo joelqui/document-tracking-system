@@ -34,15 +34,16 @@ include("auth.php"); //include auth.php file on all secure pages ?>
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="#" class=""><span class="fa fa-bar-chart"> </span> Statistics</a></a></li>
                         <li><a href="tracking_document.php"><span class="fa fa-file"></span> Track Documents</span></a></li>
-                        <li><a href="adddocu.php"><span class="fa fa-file"></span> Add Documents</span></a></li>
+                        
                        
                     </ul>
                     <ul class="nav navbar-nav pull-right">   
                  <li  id="usertype" data-organ="<?php echo $_SESSION['usertype'];?>" data-dept="<?php echo $_SESSION['department_id'];?>" data-user="<?php echo $_SESSION['user_id']; ?>" class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span  class="fa fa-sign-in"></span> Log-in as: <?php echo $_SESSION['username']; ?>!  <span class="caret"></span></a>
                             <ul class="dropdown-menu">
+                               <li id="add_doc"><a href="adddocu.php">Add Documents</a></li>
                                <li id="m_user" ><a href="view_users.php">Manage User</a></li>
                                 <li id="m_department"><a href="view_departments.php">Manage Departments</a></li>
-                               <!-- <li id="v_receiver"><a href="receiversview.php">View as Receiver</a></li>-->
+                                <li id="v_receiver"><a href="receiversview.php">View as Receiver</a></li>
                                 <li id="v_department"><a href="department-views.php">View as Department</a></li>
                                 <li id="change_pass"><a href="change_pass.php">Change Password</a></li>
                                 <li class=""><a href="logout.php"><span  class="fa fa-sign-out"></span>Logout </a></li>

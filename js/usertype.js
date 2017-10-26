@@ -6,6 +6,7 @@ $(document).ready(function(){
     console.log(department_id);
      var user = $('#usertype').data('user');
     console.log(user);
+  
   //Admin
    if (usertype==1){
     $("#change_pass ").hide(); 
@@ -14,6 +15,7 @@ $(document).ready(function(){
     }
     //User
  else if (usertype==2){
+      $("#add_doc").hide();
      $("#m_user ").hide();
      $("#m_department ").hide();
      $("#v_receiver ").hide();
@@ -23,7 +25,7 @@ $(document).ready(function(){
     //Receiver
    else if (usertype==3){
      $("#m_user ").hide();
-    $("#m_department ").hide();
+     $("#m_department ").hide();
      $("#change_pass ").hide();
     }
 
