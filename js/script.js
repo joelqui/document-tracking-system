@@ -49,6 +49,26 @@ $(document).ready(function () {
     	});
     });
 
+    $("#markasdone").click(function(){
+        if ($('#live_forward option:selected').length == 0) {
+            $("#SelectedData").text('');
+            $("#myModalMark").modal("hide");
+            alert("No documents selected !");
+        }else{
+            $('#live_forward option:selected').each(function(){
+                var docuID = $(this).val();
+                console.log(docuID);
+
+                $.post("doc_process/addmark.php",{
+                    docuID:docuID
+                }, function(data){
+                    $("#myModalMark").modal("hide");
+                    alert("Successfully");
+                });
+            });
+        }
+    });
+
     $('#addremarks').click(function(){
         if ($('#live_forward option:selected').length == 0) {
             $("#SelectedData").text('');
