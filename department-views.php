@@ -84,8 +84,9 @@ include("auth.php"); //include auth.php file on all secure pages ?>
                     
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                            <h5 class="panel-title">
+                            <div class="panel-title">
                             <h5><b>INCOMMING DOCUMENTS</b></h5>
+                            </div>
                             </div>
                                 <div class="panel-body">
                                     <select class="selectpicker" size="20" multiple="multiple"  data-actions-box="true" id="incoming" style="width: 100%;">
@@ -127,37 +128,36 @@ include("auth.php"); //include auth.php file on all secure pages ?>
                       </div>
                     </div>
 
-              
-                <!-- 
-                <div class="modal fade" id="warning" role="dialog">
-                    <div class="modal-dialog modal-md">
+                    <div  class="modal fade" id="myModalMark" role="dialog">
+                      <div class="modal-dialog modal-md">
 
-                        Modal content
+                        <!-- Modal content-->
                         <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                <h4 class="modal-title text-warning"><span class="fa fa-exclamation-circle" aria-hidden="true"></span> Warning</h4>
-                            </div>
-                            <div class="modal-body">
-                                <div class="alert alert-warning">
-                                    <strong>Info!</strong> No document/s selected 
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            </div>
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">MARK AS DONE</h4>
+                          </div>
+                          <div class="modal-body">
+                            <label>Are you sure to mark it as done ?</label>
+
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" id = "markasdone">Confirm</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                          </div>
                         </div>
 
+                      </div>
                     </div>
-                </div>
-                -->
 
-                <div class="col-sm-3">
+              
+               <div class="col-sm-3">
                     
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                              <h5 class="panel-title">
+                              <div class="panel-title">
                                 <h5><b>ON QUEUE</b></h5>
+                                </div>
                             </div>
                                 <div class="panel-body">
                                         <select class="selectpicker" size="20" multiple="multiple"  data-actions-box="true" id="onqueue" style="width: 100%;">
@@ -235,8 +235,9 @@ include("auth.php"); //include auth.php file on all secure pages ?>
                     
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                              <h5 class="panel-title">
+                              <div class="panel-title">
                                 <h5><b>FORWARDED</b></h5>
+                            </div>
                             </div>
                                 <div class="panel-body">
                                         <select class="selectpicker" size="20" multiple="multiple"  data-actions-box="true" id="live_forward" style="width: 100%;">
@@ -246,6 +247,14 @@ include("auth.php"); //include auth.php file on all secure pages ?>
                                 </div>
                         </div>
                         <button class="btn btn-default btn-block" data-toggle="modal" data-target="#myModalRemarks">Add Remarks</button>
+                </div>
+                <div class="col-sm-1">
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <button class="btn btn-default btn-block" data-toggle="modal" data-target="#myModalMark"><span class="fa fa-check" aria-hidden="true"></span></button>
                 </div>
 
                 <div class="modal fade" id="myModalRemarks" role="dialog">
