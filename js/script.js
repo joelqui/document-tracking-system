@@ -64,6 +64,7 @@ $(document).ready(function () {
                 }, function(data){
                     $("#myModalMark").modal("hide");
                     alert("Successfully");
+                    $("#SelectedData").text('');
                     DeptQueue();
                 });
             });
