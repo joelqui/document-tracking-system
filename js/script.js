@@ -50,12 +50,12 @@ $(document).ready(function () {
     });
 
     $("#markasdone").click(function(){
-        if ($('#live_forward option:selected').length == 0) {
+        if ($('#onqueue option:selected').length == 0) {
             $("#SelectedData").text('');
             $("#myModalMark").modal("hide");
             alert("No documents selected !");
         }else{
-            $('#live_forward option:selected').each(function(){
+            $('#onqueue option:selected').each(function(){
                 var docuID = $(this).val();
                 console.log(docuID);
 
@@ -64,6 +64,7 @@ $(document).ready(function () {
                 }, function(data){
                     $("#myModalMark").modal("hide");
                     alert("Successfully");
+                    DeptQueue();
                 });
             });
         }

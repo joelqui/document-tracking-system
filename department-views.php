@@ -165,7 +165,8 @@ include("auth.php"); //include auth.php file on all secure pages ?>
                                         </select>
                                 </div>
                         </div>
-                        <button class="btn btn-default btn-block" data-toggle="modal" data-target="#myModalRemarksforQueue">Add Remarks</button>
+                        <button class="btn btn-default btn-block" data-toggle="modal" data-target="#myModalRemarksforQueue">Add Remarks <span class="fa fa-plus"></span></button>
+                       <button class="btn btn-default btn-block" data-toggle="modal" data-target="#myModalMark">Mark as done <span class="fa fa-check" aria-hidden="true"></span></button>
                     
                 </div>
                 <div class="col-sm-1">
@@ -246,15 +247,7 @@ include("auth.php"); //include auth.php file on all secure pages ?>
                                    
                                 </div>
                         </div>
-                        <button class="btn btn-default btn-block" data-toggle="modal" data-target="#myModalRemarks">Add Remarks</button>
-                </div>
-                <div class="col-sm-1">
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <button class="btn btn-default btn-block" data-toggle="modal" data-target="#myModalMark"><span class="fa fa-check" aria-hidden="true"></span></button>
+                        <button class="btn btn-default btn-block" data-toggle="modal" data-target="#myModalRemarks">Add Remarks <span class="fa fa-plus"></span></button>
                 </div>
 
                 <div class="modal fade" id="myModalRemarks" role="dialog">
